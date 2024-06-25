@@ -10,7 +10,7 @@
 }
 
 .gutter {
-  background-color: #eee;
+  background-color: #eee1;
 
   background-repeat: no-repeat;
   background-position: 50%;
@@ -51,7 +51,6 @@
 }
 
 .exercise-statement .lean-code {
-  color: rgba(0, 32, 90, 0.87);
   font-size: 12px; /* TODO: is the monaco font-size hardcoded? */
 }
 
@@ -89,7 +88,7 @@
 }
 
 .doc-panel {
-  background: #fafafa;
+  background: #111;
 }
 
 .doc-panel li {
@@ -216,7 +215,7 @@ td code  {
   margin-left: .5em;
   margin-right: .5em;
   min-height: 2.5em;
-  border-top:  0.1em solid #aaa;
+  border-top: 0.1em solid #fff2;
 }
 
 .chat-panel .btn {
@@ -282,12 +281,12 @@ td code  {
 }
 
 .chat .recent {
-  box-shadow: .0em .0em .4em .1em #8cbbe9;
+  /* box-shadow: .0em .0em .4em .1em #8cbbe9; */
 }
 
 .exercise .step.selected .goal-tabs, .chat .selected {
   /* border: 3px solid #5191d1; */
-  box-shadow: .0em .0em .4em .1em var(--clr-primary);
+  /* box-shadow: .0em .0em .4em .1em var(--clr-primary); */
 }
 
 .introduction-panel {
@@ -298,7 +297,7 @@ td code  {
 }
 
 .impressum {
-  background-color: #fff;
+  background-color: black;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -313,11 +312,9 @@ td code  {
   flex-direction: column;
   right: 0;
   top: 100%;
-  background-color: #fff;
+  background-color: #65d3e9;
   z-index: 1;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: -.1rem .3rem .3rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .menu.dropdown.hidden {
@@ -342,7 +339,6 @@ td code  {
 }
 
 .typewriter-interface .content, .world-image-container.empty {
-  background-color: #eee;
 }
 
 .world-image-container {
@@ -367,7 +363,7 @@ td code  {
 }
 
 .typewriter-interface .proof {
-  background-color: #fff;
+  background-color: #fff1;
 }
 
 .toggle-width {
@@ -387,9 +383,20 @@ td code  {
 
 .nav-btns {
   height: 2rem;
+  display: flex;
 }
 
 .nav-btns .language-btn {
-  background: #DDF6FF;
+  /* background: #DDF6FF; */
   text-align: center;
+}
+
+.nav-btns .btn {
+overflow: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+.nav-btns .btn {
+width: 36px;
+}
 }

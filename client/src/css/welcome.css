@@ -73,14 +73,14 @@ h5, h6 {
   display: flex;
   align-items:center;
   justify-content:center;
-  color: #aaa;
-  background-color: #eee;
+  /* color: #aaa; */
+  /* background-color: #eee; */
   cursor: pointer;
 }
 
 .privacy p {
   position: absolute;
-  color: #888;
+  /* color: #888; */
   bottom: 1.5px;
   font-size: 6px;
 }
@@ -131,7 +131,8 @@ h5, h6 {
   max-width: 60ch;
   max-height: 80%;
   overflow: scroll;
-  background: #fff;
+  /* background: black; */
+  backdrop-filter: blur(6px);
   z-index: 3;
   padding: 2em;
   border-radius: 1em;

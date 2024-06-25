@@ -56,7 +56,6 @@ import { PreferencesPopup } from './popup/preferences'
 import { useTranslation } from 'react-i18next'
 import i18next from 'i18next'
 
-
 monacoSetup()
 
 function Level() {
@@ -584,7 +583,8 @@ function useLevelEditor(codeviewRef, initialCode, initialSelections, onDidChange
       lineNumbersMinChars: 3,
       tabSize: 2,
       'semanticHighlighting.enabled': true,
-      theme: 'vs-code-theme-converted'
+      // theme: 'vs-code-theme-converted'
+      theme: 'dracula',
     })
     if (onDidChangeSelection) {
       editor.onDidChangeCursorSelection(() => onDidChangeSelection(editor.getSelections()))

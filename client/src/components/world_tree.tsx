@@ -89,9 +89,9 @@ export function LevelIcon({ world, level, position, completed, unlocked, worldSi
     s * position.y - Math.cos(level * betaSpiral(level)) * (R + 2*r*(level-1)/(NSPIRAL+1))
 
   return (
-    <Link to={levelDisabled ? '' : `/${gameId}/world/${world}/level/${level == 1 ? 0 : level}`}
+    <Link to={levelDisabled ? '' : `/${gameId}/world/${world}/level/${level}`}
         className={`level${levelDisabled ? ' disabled' : ''}`}>
-      <circle fill={completed ? lightgreen : unlocked? blue : lightgrey} cx={x} cy={y} r={r} />
+      <circle className={'level-circle ' + (completed ? 'level-circle-completed' : unlocked ? 'level-circle-unlocked' : 'level-circle-locked')} cx={x} cy={y} r={r} />
       <foreignObject className="level-title-wrapper" x={x} y={y}
           width={1.42*r} height={1.42*r} transform={"translate("+ -.71*r +","+ -.71*r +")"}>
         <div>
@@ -123,7 +123,7 @@ export function WorldIcon({world, title, position, completedLevels, difficulty, 
   let fontSize = Math.floor(R/4)
 
   // Offset for the labels for small worlds
-  let labelOffset = R + 2.5 * r
+  let labelOffset = R + 2 * r
 
   // index `0` indicates that all prerequisites are completed
   let unlocked = completedLevels[0]
@@ -134,16 +134,25 @@ export function WorldIcon({world, title, position, completedLevels, difficulty, 
   if (nextLevel <= 1) {
     // note: `findIndex` returns `-1` on failure, therefore the indices
     // `-1, 0, 1` indicate all that the introduction should be shown
-    nextLevel = 0
+    nextLevel = 1
   }
   let playable = difficulty <= 1 || completed || unlocked
   const gameId = React.useContext(GameIdContext)
+  nextLevel = nextLevel == 1 ? 0 : nextLevel;
 
   return <Link
-      to={playable ? `/${gameId}/world/${world}/level/${nextLevel}` : ''}
-      className={playable ? '' : 'disabled'}>
-    <circle className="world-circle" cx={s*position.x} cy={s*position.y} r={R}
-        fill={completed ? green : unlocked ? blue : grey}/>
+           to={playable ? `/${gameId}/world/${world}/level/${nextLevel}` : ''}
+           className={`world${playable ? '' : ' disabled'}`}>
+    <circle className={'world-circle ' + (completed ? 'world-circle-completed' : unlocked ? 'world-circle-unlocked' : 'world-circle-locked')} cx={s*position.x} cy={s*position.y} r={R}
+    />
+    <foreignObject className="level-title-wrapper" x={s*position.x} y={s*position.y}
+        width={1.42*r} height={1.42*r} transform={"translate("+ -.71*r +","+ -.71*r +")"}>
+      <div>
+        <p className="level-title" style={{fontSize: Math.floor(r) + "px"}}>
+          {nextLevel}
+        </p>
+      </div>
+    </foreignObject>
     { false ? // fontSize >= MINFONT ?
       // NOTE: This code would display the world names inside the bubble, but currently
       //       it isn't used.
@@ -161,7 +170,7 @@ export function WorldIcon({world, title, position, completedLevels, difficulty, 
       <foreignObject x={s*position.x - 75} y={s*position.y + labelOffset}
           width='150px' height='2em' style={{overflow: 'visible'}}
           >
-        <div className='world-label' style={{backgroundColor: completed ? darkgreen : unlocked ? darkblue : darkgrey}}>
+        <div className={'world-label ' + (completed ? 'world-label-completed' : unlocked ? 'world-label-unlocked' : 'world-label-locked')}>
           <p className='world-title' style={{fontSize: MINFONT + "px"}}>
             {title ? t(title, {ns: gameId}) : world}
           </p>
@@ -172,9 +181,9 @@ export function WorldIcon({world, title, position, completedLevels, difficulty, 
 
 /** svg object for a connection path between worlds in the game tree */
 export function WorldPath({source, target, unlocked} : {source: any, target: any, unlocked: boolean}) {
-  return <line x1={s*source.position.x} y1={s*source.position.y}
+  return <line className={'world-line ' + (unlocked ? 'world-line-unlocked' : 'world-line-locked')} x1={s*source.position.x} y1={s*source.position.y}
           x2={s*target.position.x} y2={s*target.position.y}
-          stroke={unlocked ? green : grey} strokeWidth={lineWidth} />
+          strokeWidth={lineWidth} />
 }
 
 /** Download a file containing `data` */

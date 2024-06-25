@@ -5,6 +5,7 @@ import { faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
 import { Registry } from 'monaco-textmate' // peer dependency
 import { wireTmGrammars } from 'monaco-editor-textmate'
+import Dracula from 'monaco-themes/themes/Dracula.json'
 import { DiagnosticSeverity, PublishDiagnosticsParams, DocumentUri } from 'vscode-languageserver-protocol';
 import { useServerNotificationEffect } from '../../../../node_modules/lean4-infoview/src/infoview/util';
 import { AbbreviationRewriter } from 'lean4web/client/src/editor/abbreviation/rewriter/AbbreviationRewriter';
@@ -34,6 +35,8 @@ monaco.languages.register({
   id: 'lean4cmd',
   extensions: ['.leancmd']
 })
+
+monaco.editor.defineTheme('dracula', Dracula)
 
 // map of monaco "language id's" to TextMate scopeNames
 const grammars = new Map()
@@ -200,7 +203,7 @@ export function Typewriter({disabled}: {disabled?: boolean}) {
         horizontalScrollbarSize: 3
       },
       overviewRulerBorder: false,
-      theme: 'vs-code-theme-converted',
+      theme: 'dracula',
       contextmenu: false
     })
 

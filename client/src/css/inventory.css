@@ -24,18 +24,21 @@
 }
 
 .inventory .item {
-  background: #fff;
-  border: solid 1px #777;
   padding-left: .5rem;
   padding-right: 1.0rem;
   padding-top: .1rem;
   padding-bottom: .1rem;
   position: relative;
+  transition: background-color 100ms ease-in-out;
+  border-radius: .3em;
 }
 
 .inventory .item.locked {
-  border: solid 1px #ccc;
-  color: #ccc;
+  color: #444;
+}
+
+.inventory .item:hover {
+  background-color: var(--hover);
 }
 
 .inventory .item.disabled {
@@ -43,7 +46,11 @@
 }
 
 .inventory .item.new {
-  background-color: rgb(255, 242, 190);
+  background-color: #972;
+}
+
+.inventory .item.new:hover {
+  background-color: #b94;
 }
 
 .inventory .item:not(.locked), .inventory .item.enabled {
@@ -51,12 +58,11 @@
 }
 
 .tab-bar {
-  border-bottom: 0.1em solid var(--clr-dark-gray);
+  border-bottom: 0.1em solid #fff2;
   margin-bottom: 0.5em;
 }
 
 .tab {
-  color: var(--clr-darker-gray);
   line-height: inherit;
   text-decoration: none;
   padding: 0.2rem .6em;
@@ -68,13 +74,11 @@
 }
 
 .tab-bar.current .tab.active {
-  color: black;
-  border-bottom: 0.3em solid var(--clr-primary);
+  border-bottom: 0.3em solid var(--clr-secondary);
 }
 
 .tab.active {
-  color: black;
-  border-bottom: 0.3em solid #999;
+  border-bottom: 0.3em solid var(--clr-primary);
 }
 
 

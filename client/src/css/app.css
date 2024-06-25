@@ -1,12 +1,25 @@
 /* variables */
 
 :root {
-  --clr-primary: #1976d2;
-  --clr-primary-dark: #104a83;
-  --clr-light-gray: #ddd;
-  --clr-dark-gray: #aaa;
-  --clr-darker-gray: #555;
+  --clr-primary: #65d3e9;
+  --clr-primary-dark: #428c9b;
+  --clr-light-gray: #222;
+  --clr-dark-gray: #555;
+  --clr-darker-gray: #aaa;
   --ff-primary: Roboto;
+  --clr-secondary: #f280d0;
+  --clr-secondary-dark: #662a59;
+
+  --background: #000c18;
+  --hover: #65d3e933;
+
+  --vscode-editor-background: #0000 !important;
+  --vscode-editor-foreground: white !important;
+  --vscode-editorHoverWidget-background: #111c28 !important;
+  --vscode-widget-shadow: #0004 !important;
+  --vscode-editorHoverWidget-border: #2222 !important;
+  --vscode-editor-selectionBackground: var(--hover) !important;
+  --vscode-breadcrumb-foreground: #eee !important;
 }
 
 
@@ -16,11 +29,14 @@ body {
   font-family: var(--ff-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: white;
+  scrollbar-color: lightgray #fff1;
 }
 
 .markdown code {
-  color: rgba(0, 32, 90, 0.87);
-  background-color: rgba(223, 227, 234);
+  color: ;
+  background-color: #fff1;
   font-size: 85%;
   border-radius: .3em;
   padding-left: .3em;
@@ -37,9 +53,12 @@ body {
   padding-left: .3em;
   overflow: auto;
   line-height: 1.45;
-  color: rgba(0, 32, 90, 0.87);
-  background-color: rgba(223, 227, 234);
+  background-color: #fff1;
   border-radius: .3em;
+}
+
+.markdown pre code {
+  background-color: unset;
 }
 
 .loading {
@@ -53,7 +72,7 @@ body {
   line-height: inherit;
   text-decoration: none;
   background: var(--clr-primary);
-  color: white;
+  color: black;
   display: inline-block;
   border-radius: 0.2em;
   padding: 0.2rem .6em;
@@ -65,7 +84,7 @@ body {
 
 .btn-inverted {
   color: var(--clr-primary);
-  background: white;
+  background: black;
 }
 
 .btn-inverted:hover {
@@ -75,11 +94,12 @@ body {
 .btn-disabled, .btn[disabled] {
   color: var(--clr-dark-gray);
   background: var(--clr-light-gray);
+  pointer-events: none;
 }
 
 .btn-inverted.btn-disabled, .btn-inverted.btn[disabled] {
   color: var(--clr-dark-gray);
-  background: white;
+  background: black;
 }
 
 em {
@@ -100,7 +120,7 @@ em {
 
 .app-bar {
   flex: 0;
-  background: var(--clr-primary);
+  background: linear-gradient(135deg, #f280d0 0%, #65d3e9 100%);
   display: flex;
   position: relative;
   flex-direction: row;
@@ -111,6 +131,10 @@ em {
   z-index: 2;
 }
 
+.app-bar .btn {
+  background: unset;
+}
+
 .app-bar > .app-bar-left{
   display: flex;
   align-items: center;
@@ -118,7 +142,7 @@ em {
 }
 
 .app-bar-title, .app-bar-subtitle {
-  color: white;
+  color: black;
   font-weight: 500;
   font-size: 1.3rem;
   display: inline-block;

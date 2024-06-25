@@ -16,7 +16,6 @@ svg .world-title-wrapper div, svg .level-title-wrapper div {
 }
 
 svg .world-title, svg .level-title {
-  color: white;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -36,6 +35,10 @@ svg .level:hover .level-title {
   opacity: 1;
 }
 
+svg .world:hover .level-title {
+  opacity: 1;
+}
+
 svg .disabled {
   cursor: default;
 }
@@ -51,12 +54,9 @@ svg .disabled {
 .world-selection-menu {
   right: 1em;
   top: 1em;
-  /* margin: 1em; */
-  /* border: 1px solid var(--clr-primary); */
+  margin: 1em;
   border: 1px solid var(--clr-primary);
-  background-color: #fff;
   border-radius: .5em;
-  filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.5));
 }
 
 .world-selection-menu.desktop {
@@ -82,6 +82,10 @@ svg .disabled {
   margin-right: auto;
 }
 
+.slider-wrap * {
+  color: inherit !important;
+}
+
 .difficulty-label {
   /* font-size: 0.875em; */
   padding-bottom: 1.2em;
@@ -99,7 +103,7 @@ svg .disabled {
     position: absolute;
     top: 90%;
     color: #000;
-    background-color: #fff;
+    background-color: black;
     border: 1px solid;
     width: fit-content;
     padding: 3px;
@@ -108,8 +112,14 @@ svg .disabled {
 
 .world-label {
   /* border: 2px solid purple; */
+  backdrop-filter: blur(6px);
   padding: .2em;
   border-radius: .5em;
+  color: white;
+}
+
+.world-label-completed, .world-label-unlocked, .world-label-locked {
+background-color: #aaaaaa44;
 }
 
 .world-selection-menu .helpButton {
@@ -117,4 +127,24 @@ svg .disabled {
   right: .5em;
   top: .5em;
   color: var(--clr-primary);
+}
+
+.level-circle-completed, .world-circle-completed {
+fill: #f280d0;
+}
+
+.level-circle-unlocked, .world-circle-unlocked {
+fill: #65d3e9;
+}
+
+.level-circle-locked, .world-circle-locked {
+fill: #aaaaaa;
+}
+
+.world-line-unlocked {
+stroke: #c654a4;
+}
+
+.world-line-locked {
+stroke: #8a8a8a;
 }

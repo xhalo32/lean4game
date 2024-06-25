@@ -32,6 +32,7 @@
     "i18next-scanner-typescript": "^1.2.0",
     "lean4-infoview": "https://gitpkg.now.sh/leanprover/vscode-lean4/lean4-infoview?de0062c",
     "lean4web": "github:hhu-adam/lean4web#414d9e62638a392fca278761b4c61a1d2e138bc7",
+    "monaco-themes": "^0.4.4",
     "octokit": "^3.1.2",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",

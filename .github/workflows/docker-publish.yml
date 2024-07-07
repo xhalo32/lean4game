@@ -44,6 +44,6 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: |
           set -eu
-          
+
           OCI_ARCHIVE=$(nix build -L .#client-proxy-oci --print-out-paths)
-          skopeo --insecure-policy copy "docker-archive:${OCI_ARCHIVE}" "${REGISTRY}/${IMAGE_NAME}"
+          skopeo --insecure-policy copy "docker-archive:${OCI_ARCHIVE}" "docker://${REGISTRY}/${IMAGE_NAME}/client-proxy"

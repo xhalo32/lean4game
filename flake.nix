@@ -249,7 +249,7 @@
               };
             in
             pkgs.dockerTools.buildImage {
-              name = "lean4game-client-proxy";
+              name = "ghcr.io/xhalo32/lean4game/client-proxy";
               tag = "latest";
               copyToRoot = [
                 nginxConf

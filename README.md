@@ -1,5 +1,7 @@
 # Lean 4 Game
 
+[![Docker](https://github.com/xhalo32/lean4game/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/xhalo32/lean4game/actions/workflows/docker-publish.yml)
+
 This is the source code for a Lean game platform hosted at [adam.math.hhu.de](https://adam.math.hhu.de).
 
 ## Creating a Game

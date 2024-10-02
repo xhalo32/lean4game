@@ -1,0 +1,5 @@
+.devenv
+.direnv
+**/.lake
+**/node_modules
+result

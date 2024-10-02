@@ -4,14 +4,11 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    devenv.url = "github:cachix/devenv";
-    lean4.url = "github:leanprover/lean4/d984030c6a683a80313917b6fd3e77abdf497809";
   };
 
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ inputs.devenv.flakeModule ];
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -268,12 +265,11 @@
                 };
               };
             };
-          devenv.shells.default = {
+          devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               podman
               elan
               nodejs
-              # inputs'.lean4.packages.lean
             ];
           };
         };
